@@ -6,7 +6,7 @@ This is a FastAPI application for managing FAQs with multilingual support and ca
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/Anubhavbaranwal/fastapi-faq.git
+   git clone https://github.com/Anubhavbaranwal/Anubhavbaranwal-BharatFD_task.git
    cd fastapi-faq
    ```
 
