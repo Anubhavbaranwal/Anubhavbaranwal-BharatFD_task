@@ -12,7 +12,7 @@ def get_faqs(db: Session, lang: str = 'en'):
             raise HTTPException(status_code=404, detail="No FAQs found")
 
         translated_faqs = [
-            {"question": faq.get_translation(lang)[0], "answer": faq.get_translation(lang)[1]}
+            {"id": faq.id, "question": faq.get_translation(lang)[0], "answer": faq.get_translation(lang)[1]}
             for faq in faq_records
         ]
         return translated_faqs
@@ -25,12 +25,8 @@ def get_faq(db: Session, faq_id: int, lang: Optional[str] = 'en'):
     if not faq:
         raise HTTPException(status_code=404, detail=f"FAQ with ID {faq_id} not found")
     
-    if lang and lang != 'en':
-        question, answer = faq.get_translation(lang)
-        return {"id": faq.id, "question": question, "answer": answer}
-    
-    return faq
-
+    question, answer = faq.get_translation(lang)
+    return {"id": faq.id, "question": question, "answer": answer}
 
 def create_faq(db: Session, faq: FAQCreate):
     try:
