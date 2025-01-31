@@ -5,3 +5,5 @@ uvicorn
 googletrans==4.0.0-rc1
 redis
 psycopg2-binary
+pytest
+httpx==0.21.1
